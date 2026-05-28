@@ -203,25 +203,27 @@ class _GameDetailScreenState extends State<GameDetailScreen> {
                     onPressed: () => Navigator.pop(context),
                   ),
                   actions: [
-                    IconButton(
-                      icon: const Icon(Icons.edit_outlined, color: Colors.white),
-                      tooltip: 'Editar',
-                      onPressed: () async {
-                        final updated = await Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (_) => GameFormScreen(game: game),
-                          ),
-                        );
-                        if (updated == true) Navigator.pop(context, true);
-                      },
-                    ),
-                    IconButton(
-                      icon: const Icon(Icons.delete_outline,
-                          color: Colors.redAccent),
-                      tooltip: 'Excluir',
-                      onPressed: _deleteGame,
-                    ),
+                    if (game.userId == _auth.currentUser?.id) ...[
+                      IconButton(
+                        icon: const Icon(Icons.edit_outlined, color: Colors.white),
+                        tooltip: 'Editar',
+                        onPressed: () async {
+                          final updated = await Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => GameFormScreen(game: game),
+                            ),
+                          );
+                          if (updated == true) Navigator.pop(context, true);
+                        },
+                      ),
+                      IconButton(
+                        icon: const Icon(Icons.delete_outline,
+                            color: Colors.redAccent),
+                        tooltip: 'Excluir',
+                        onPressed: _deleteGame,
+                      ),
+                    ],
                   ],
                   flexibleSpace: FlexibleSpaceBar(
                     background: game.imageUrl != null &&

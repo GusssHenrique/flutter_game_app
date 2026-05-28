@@ -8,6 +8,7 @@ class Game {
   final int? releaseYear;
   final String? developer;
   final DateTime createdAt;
+  final String? userId;
 
   Game({
     required this.id,
@@ -19,6 +20,7 @@ class Game {
     this.releaseYear,
     this.developer,
     required this.createdAt,
+    this.userId,
   });
 
   factory Game.fromMap(Map<String, dynamic> map) {
@@ -32,6 +34,7 @@ class Game {
       releaseYear: map['release_year'] as int?,
       developer: map['developer'] as String?,
       createdAt: DateTime.parse(map['created_at'] as String),
+      userId: map['user_id'] as String?,
     );
   }
 
