@@ -479,7 +479,7 @@ class _ReviewTile extends StatelessWidget {
                 ),
               ),
               Text(
-                DateFormat('dd/MM/yyyy').format(review.createdAt),
+                DateFormat('dd/MM/yyyy').format(review.createdAt.toLocal()),
                 style: GoogleFonts.poppins(
                     fontSize: 11, color: Colors.white38),
               ),
