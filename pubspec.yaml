@@ -1,0 +1,30 @@
+name: gamerank_app
+description: "Catálogo de jogos digitais com avaliações — GameRank."
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  supabase_flutter: ^2.5.0
+  supabase_auth_ui: ^0.5.5
+  cupertino_icons: ^1.0.8
+  url_launcher: ^6.2.5
+  flutter_rating_bar: ^4.0.1
+  cached_network_image: ^3.3.1
+  google_fonts: ^6.2.1
+  intl: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
