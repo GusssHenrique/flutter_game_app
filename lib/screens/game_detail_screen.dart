@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:intl/intl.dart';
 import '../models/game.dart';
 import '../models/review.dart';
 import '../services/auth_service.dart';
@@ -477,6 +478,12 @@ class _ReviewTile extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
+              Text(
+                DateFormat('dd/MM/yyyy').format(review.createdAt),
+                style: GoogleFonts.poppins(
+                    fontSize: 11, color: Colors.white38),
+              ),
+              const SizedBox(width: 8),
               Row(
                 children: [
                   const Icon(Icons.star_rounded,
