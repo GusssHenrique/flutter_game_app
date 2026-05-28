@@ -31,9 +31,11 @@ class DatabaseService {
   }
 
   Future<Game> createGame(Game game) async {
+    final data = game.toMap();
+    data['user_id'] = _client.auth.currentUser!.id;
     final response = await _client
         .from('games')
-        .insert(game.toMap())
+        .insert(data)
         .select()
         .single();
     return Game.fromMap(response);
